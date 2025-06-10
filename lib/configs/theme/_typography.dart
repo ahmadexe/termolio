@@ -13,7 +13,7 @@ abstract class AppText {
   static late TextStyleRef s2;
 
   static void init() {
-    const base = TextStyle(color: Colors.white);
+    const base = TextStyle(color: AppTheme.primary);
 
     h1 = TextStyleRef(
       base

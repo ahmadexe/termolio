@@ -1,7 +1,7 @@
 part of '../configs.dart';
 
 abstract class AppTheme {
-  static const primary = Color.fromARGB(255, 0, 209, 0);
+  static const primary = Color.fromARGB(255, 2, 227, 2);
   static const backgroundDark = Colors.black;
 
   static ThemeData dark(BuildContext context) => ThemeData(
