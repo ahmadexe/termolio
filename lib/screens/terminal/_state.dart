@@ -5,6 +5,8 @@ class _ScreenState extends ChangeNotifier {
   static _ScreenState s(BuildContext context, [listen = false]) =>
       Provider.of<_ScreenState>(context, listen: listen);
 
+  final FileSystem fileSystem = FileSystem();
+
   @override
   void dispose() {
     super.dispose();
@@ -14,18 +16,6 @@ class _ScreenState extends ChangeNotifier {
 
   final TextEditingController controller = TextEditingController();
   final ScrollController scrollController = ScrollController();
-
-  String currentPath = '~';
-
-  void setCurrentPath(String path) {
-    currentPath = path;
-    notifyListeners();
-  }
-
-  void resetCurrentPath() {
-    currentPath = '~';
-    notifyListeners();
-  }
 
   final String pathPrefix = 'ahmadexe@termolio';
 
@@ -43,7 +33,8 @@ class _ScreenState extends ChangeNotifier {
   void processCommand(String input) {
     if (input.trim().isEmpty) return;
 
-    final completeValue = '$pathPrefix $currentPath % $input';
+    final completeValue =
+        '$pathPrefix ${fileSystem.currentDirectory.name} % $input';
     history.add(completeValue);
     if (history.length > 100) {
       history.removeAt(0);
@@ -82,28 +73,18 @@ class _ScreenState extends ChangeNotifier {
         notifyListeners();
 
       case 'pwd' || 'cwd':
-        final response = currentPath;
-        history.add(response);
+        history.add(fileSystem.currentDirectory.name);
         notifyListeners();
 
       case 'ls':
-        final response = handleLs(command);
+        final response = fileSystem.ls();
         history.add(response);
         notifyListeners();
 
       default:
         history.add(
-          "$pathPrefix $currentPath % termolio: command not found: $command",
+          "$pathPrefix ${fileSystem.currentDirectory.name} % termolio: command not found: $command",
         );
-    }
-  }
-
-  String handleLs(String command) {
-    switch (currentPath) {
-      case '~':
-        return '''projects          awards          experience\narticles''';
-      default:
-        return '';
     }
   }
 }

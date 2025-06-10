@@ -1,0 +1,57 @@
+import 'package:termolio/services/file_system/directory_node.dart';
+import 'package:termolio/services/file_system/file_node.dart';
+
+class FileSystem {
+  late DirectoryNode _currentDirectory;
+  late DirectoryNode _root;
+  bool _isInitialized = false;
+
+  FileSystem() {
+    if (_isInitialized) return;
+    _isInitialized = true;
+    init();
+  }
+
+  DirectoryNode get currentDirectory => _currentDirectory;
+
+  List<DirectoryNode> navigationHistory = [];
+
+  void init() {
+    _root = DirectoryNode(
+      name: '~',
+      children: [
+        DirectoryNode(name: 'projects', children: []),
+        DirectoryNode(name: 'awards', children: []),
+        DirectoryNode(name: 'experience', children: []),
+        DirectoryNode(
+          name: 'articles',
+          children: [
+            FileNode(
+              content:
+                  'Explore how to send push notifications in Flutter web, medium link: https://medium.com/@ahmadexe/flutterfire-push-notifications-via-fcm-flutter-web-b475f3e0a5e2',
+              name: 'FlutterFire Push Notifications via FCM — Flutter Web',
+            ),
+            FileNode(
+              content:
+                  'Do concurrent programming the right way, from the basics to the most used concurrency patterns in Go. Read more at: https://medium.com/@ahmadexe/concurrency-in-go-everything-you-need-to-know-5319e69a9e54',
+              name: 'Concurrency in GO: Everything You Need to Know',
+            ),
+            FileNode(
+              content:
+                  "My journey building PRISM, learn about the architecture for the PRISM's mobile application and backend. Read more at: https://medium.com/@ahmadexe/behind-the-code-journey-building-prism-f3bf7de0883d",
+              name: 'Behind the Code: Journey Building PRISM',
+            ),
+          ],
+        ),
+      ],
+    );
+    _currentDirectory = _root;
+
+    navigationHistory.clear();
+  }
+
+  String ls() {
+    final String content = _currentDirectory.children.map((e) => e.name).join('\n');
+    return content;
+  }
+}

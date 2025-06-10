@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:provider/provider.dart';
 import 'package:termolio/configs/configs.dart';
+import 'package:termolio/services/file_system/file_system.dart';
 import 'package:termolio/services/url/url_service.dart';
 import 'package:termolio/widgets/core/screen.dart';
 

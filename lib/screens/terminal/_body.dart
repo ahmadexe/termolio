@@ -36,7 +36,7 @@ class _Body extends StatelessWidget {
                   style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
                 ),
                 Text(
-                  '${screenState.currentPath} % ',
+                  '${screenState.fileSystem.currentDirectory.name} % ',
                   style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
                 ),
                 Expanded(
