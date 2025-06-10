@@ -16,12 +16,9 @@ class _Body extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index < history.length) {
             final command = history[index];
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 2),
-              child: Text(
-                command,
-                style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
-              ),
+            return Text(
+              command,
+              style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
             );
           } else {
             return Row(
