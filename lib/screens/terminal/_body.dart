@@ -16,27 +16,34 @@ class _Body extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index < history.length) {
             final command = history[index];
-            return Text(
-              command,
-              style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
+            return Linkify(
+              text: command,
+              linkStyle: AppText.s1.copyWith(
+                fontWeight: FontWeight.w900,
+                decoration: TextDecoration.underline,
+                color: AppTheme.primary,
+                decorationColor: AppTheme.primary,
+              ),
+              style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
+              onOpen: (link) => UrlService.launch(link.url),
             );
           } else {
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'termolio@ahmad ',
-                  style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
+                  '${screenState.pathPrefix} ',
+                  style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
                 ),
                 Text(
                   '${screenState.currentPath} % ',
-                  style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
+                  style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
                 ),
                 Expanded(
                   child: TextField(
                     controller: screenState.controller,
                     autofocus: true,
-                    style: AppText.s1.copyWith(fontWeight: FontWeight.bold),
+                    style: AppText.s1.copyWith(fontWeight: FontWeight.w900),
                     cursorColor: AppTheme.primary,
                     textInputAction: TextInputAction.done,
                     onSubmitted: screenState.processCommand,
