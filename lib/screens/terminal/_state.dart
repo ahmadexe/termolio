@@ -66,7 +66,7 @@ class _ScreenState extends ChangeNotifier {
           fileSystem.cd('', reset: true);
           return;
         }
-        history.add("cd: no such file or directory: $command");
+        history.add(e.toString());
       }
 
       notifyListeners();

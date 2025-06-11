@@ -175,26 +175,31 @@ class FileSystem {
       navigationHistory.removeLast();
       _currentDirectory = navigationHistory.last;
     } else {
-      DirectoryNode localCurrent = _currentDirectory;
-      List<String> splitPath = path.split('/');
+      try {
+        DirectoryNode localCurrent = _currentDirectory;
+        List<String> splitPath = path.split('/');
 
-      for (int i = 0; i < splitPath.length; i++) {
-        if (splitPath[i] == '') {
-          continue;
+        for (int i = 0; i < splitPath.length; i++) {
+          if (splitPath[i] == '') {
+            continue;
+          }
+
+          Node node = localCurrent.children.firstWhere(
+            (element) => element.name == splitPath[i],
+          );
+
+          if (node.isDirectory) {
+            localCurrent = node as DirectoryNode;
+            navigationHistory.add(localCurrent);
+          } else {
+            throw ("cd: not a directory: ${node.name}");
+          }
+          _currentDirectory = localCurrent;
         }
-
-        Node node = localCurrent.children.firstWhere(
-          (element) => element.name == splitPath[i],
-        );
-
-        if (node.isDirectory) {
-          localCurrent = node as DirectoryNode;
-          navigationHistory.add(localCurrent);
-        } else {
-          throw ("Not a directory");
-        }
+      } catch (e) {
+        debugPrint(e.toString());
+        throw ("cd: no such file or directory: $path");
       }
-      _currentDirectory = localCurrent;
     }
   }
 
