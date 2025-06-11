@@ -67,10 +67,58 @@ class FileSystem {
             ),
           ],
         ),
-        DirectoryNode(name: 'awards', children: [
-          FileNode(content: "Alongside my team, we won the 2025 ICT Innovation Competition. We presented our PRISM and talked about agenix, using which we became one of the first few people to work in domain of agentic social media apps.", name: 'ICT Innovation Competition 2025')
-        ]),
-        DirectoryNode(name: 'experience', children: []),
+        DirectoryNode(
+          name: 'awards',
+          children: [
+            FileNode(
+              content:
+                  "Alongside my team, we won first prize at the 2025 ICT Innovation Competition. We presented our PRISM and talked about agenix, using which we became one of the first few people to work in domain of agentic social media apps.",
+              name:
+                  'Global Finals ICT Innovation Competition 2025, Shenzhen, China',
+            ),
+            FileNode(
+              content:
+                  "Alongside my team, we won first prize at the 2025 ICT Innovation Competition Regional finals. We presented our PRISM, focusing on our system design, and software architecture!",
+              name:
+                  'Regional Finals ICT Innovation Competition 2025, Riyadh, Saudi Arabia',
+            ),
+            FileNode(
+              content:
+                  "I had the honour to represent Pakistan at Huawei's Seeds for the Future 2024 Program. We worked on a women's healthcare application.",
+              name: 'Seeds for the Future 2024, Tashkent, Uzbekistan',
+            ),
+            FileNode(
+              content:
+                  "My team won the 2024 Visio Spark Software Project Competition. We presented our PRISM and PRISM Chain.",
+              name: 'Winner Visio Spark 2024',
+            ),
+            FileNode(
+              content:
+                  "Sofetc 2024 held is Lahore was one of the most exciting events of the year. I won the 1st Runner Up in the Mobile App Development category.",
+              name: '1st Runner up Softec 2024 - Mobile App Dev',
+            ),
+          ],
+        ),
+        DirectoryNode(
+          name: 'experience',
+          children: [
+            FileNode(
+              content:
+                  "At Hareseca LLC, I had the opportunity to work on their product, Bloom Booking. I actively played my role in Software Architecture and System design, ensuring scalablity and maintainability. I am currently working there!",
+              name: "Hareseca LLC",
+            ),
+            FileNode(
+              content:
+                  "From an intern to leading their Summer internship program. During my time at Dexplat Technologies, I had the privilege of working on a wide range of projects, including web development, mobile development, and backend development. I worked in products from various niches like e-commerce, social media, fintech and health-care",
+              name: "Dexplat Technologies",
+            ),
+            FileNode(
+              content:
+                  "I joined the App Development Committee to build YESIST12's mobile application. Currently I am leading the App dev committee as the Vice Chairperson.",
+              name: "IEEE YESIST12",
+            ),
+          ],
+        ),
         DirectoryNode(
           name: 'articles',
           children: [

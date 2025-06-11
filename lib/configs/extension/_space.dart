@@ -3,16 +3,12 @@ part of '../configs.dart';
 extension SuperEdgeInsets on EdgeInsets {
   EdgeInsets st([plus = 0, bool un = false]) {
     final base = top + AppMedia.padding.top;
-    return copyWith(
-      top: base + (un ? plus.fs() : plus.toDouble()),
-    );
+    return copyWith(top: base + (un ? plus.fs() : plus.toDouble()));
   }
 
   EdgeInsets sb([plus = 0, bool un = false]) {
     final base = bottom + AppMedia.padding.bottom;
-    return copyWith(
-      bottom: base + (un ? plus.fs() : plus.toDouble()),
-    );
+    return copyWith(bottom: base + (un ? plus.fs() : plus.toDouble()));
   }
 
   EdgeInsets h(num no, [bool un = false]) {

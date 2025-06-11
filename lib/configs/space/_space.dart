@@ -46,10 +46,7 @@ class Space {
 
   static EdgeInsets sym([double? h, double? v]) {
     final u = SpaceToken.t15;
-    return EdgeInsets.symmetric(
-      vertical: v ?? u,
-      horizontal: h ?? u,
-    );
+    return EdgeInsets.symmetric(vertical: v ?? u, horizontal: h ?? u);
   }
 
   static EdgeInsets only([double? t, double? r, double? b, double? l]) {

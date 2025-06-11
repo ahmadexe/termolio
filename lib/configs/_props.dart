@@ -5,8 +5,6 @@ abstract class AppProps {
 
   static final modalDec = BoxDecoration(
     color: Colors.white,
-    borderRadius: BorderRadius.vertical(
-      top: Radius.circular(6.un()),
-    ),
+    borderRadius: BorderRadius.vertical(top: Radius.circular(6.un())),
   );
 }

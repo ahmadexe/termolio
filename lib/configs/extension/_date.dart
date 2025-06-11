@@ -7,13 +7,15 @@ final _dateTimeDigits = DateFormat("MM/dd/yyyy KK:mmaaa");
 extension SuperDate on DateTime {
   DateTime get today => DateTime(year, month, day);
 
-  DateTime get endOfDay => add(const Duration(days: 1)).subtract(Duration(
-        hours: hour,
-        minutes: minute,
-        seconds: second,
-        milliseconds: millisecond,
-        microseconds: microsecond,
-      ));
+  DateTime get endOfDay => add(const Duration(days: 1)).subtract(
+    Duration(
+      hours: hour,
+      minutes: minute,
+      seconds: second,
+      milliseconds: millisecond,
+      microseconds: microsecond,
+    ),
+  );
 
   String get date => _date.format(this);
 

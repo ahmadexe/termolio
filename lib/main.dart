@@ -10,8 +10,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: TerminalScreen(),
-    );
+    return MaterialApp(home: TerminalScreen());
   }
 }

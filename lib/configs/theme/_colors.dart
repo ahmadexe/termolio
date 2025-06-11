@@ -5,14 +5,13 @@ abstract class AppTheme {
   static const backgroundDark = Colors.black;
 
   static ThemeData dark(BuildContext context) => ThemeData(
-        useMaterial3: false,
-        primaryColor: primary,
-        primarySwatch: ThemeUtils.getMaterialColor(primary),
-        splashColor: Colors.transparent,
-        scaffoldBackgroundColor: backgroundDark,
-        textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: primary,
-              displayColor: primary,
-            ),
-      );
+    useMaterial3: false,
+    primaryColor: primary,
+    primarySwatch: ThemeUtils.getMaterialColor(primary),
+    splashColor: Colors.transparent,
+    scaffoldBackgroundColor: backgroundDark,
+    textTheme: Theme.of(
+      context,
+    ).textTheme.apply(bodyColor: primary, displayColor: primary),
+  );
 }

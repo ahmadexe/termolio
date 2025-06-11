@@ -11,10 +11,7 @@ class FocusHandler extends StatelessWidget {
     }
   }
 
-  const FocusHandler({
-    super.key,
-    required this.child,
-  });
+  const FocusHandler({super.key, required this.child});
 
   final Widget child;
 

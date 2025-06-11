@@ -22,7 +22,7 @@ class _ScreenState extends ChangeNotifier {
   final String pathPrefix = 'ahmadexe@termolio';
 
   List<String> history = [
-    "Hello visitor, it's good to see you here\nTry <help> command for more info.",
+    "Hello visitor, it's good to see you here\nTry <help> command for more info or <about> to know more about me",
   ];
   void addToHistory(String path) {
     history.add(path);
@@ -96,7 +96,7 @@ class _ScreenState extends ChangeNotifier {
 
       case 'whoami' || 'wami' || 'about' || 'aboutme' || 'ahmadexe':
         final response =
-            '''Ahmadexe is a software engineer and the creator of Termolio.\nHe is passionate about creating innovative solutions and enjoys working on open-source projects.\nHe has a background in computer science and has worked on various projects across different domains.\nYou can find more about him on his GitHub profile: https://github.com/ahmadexe''';
+            '''Hey, I'm Muhammad Ahmad or Ahmadexe or the guy behind Termolio. I'm a software engineer who loves building cool stuff. Whether it's open-source tools, side projects, or random ideas I turn into reality, I'm all about creating things that feel thoughtful and sharp.\nI come from a computer science background, but I’ve never been the “just follow the syllabus” type. I like exploring, tinkering, and pushing boundaries — from dev tools to full-stack apps. I believe good software is equal parts logic and soul..\nYou can find more about me on my GitHub profile: https://github.com/ahmadexe\nMedium: https://medium.com/@ahmadexe\nLinkedIn: https://www.linkedin.com/in/ahmadexe/''';
         history.add(response);
         notifyListeners();
 
