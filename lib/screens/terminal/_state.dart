@@ -86,7 +86,7 @@ class _ScreenState extends ChangeNotifier {
     switch (command) {
       case 'help' || 'h' || 'commands' || 'cmds' || 'man termoliobuiltins':
         final response =
-            '''Available commands:\nhelp, h, commands or cmds, man termoliobuiltins - Show this help message and list of commands available\nclear, cls - Clear the terminal screen\nwhoami, wami, about, aboutme, ahmadexe - Show information about the author\nls - List the contents of the current directory\ncwd, pwd - Show the current working directory''';
+            '''Available commands:\nhelp, h, commands or cmds, man termoliobuiltins - Show this help message and list of commands available\nclear, cls - Clear the terminal screen\nwhoami, wami, about, aboutme, ahmadexe - Show information about the author\nls - List the contents of the current directory\ncwd, pwd - Show the current working directory\ncd <path> - Change the current directory to <path>\ncat <file> - Display the contents of the specified file''';
         history.add(response);
         notifyListeners();
 
@@ -111,7 +111,7 @@ class _ScreenState extends ChangeNotifier {
 
       default:
         history.add(
-          "$pathPrefix ${fileSystem.currentDirectory.name} % termolio: command not found: $command",
+          "$pathPrefix ${fileSystem.currentDirectory.name} % termolio: command not found: $command Try 'help' for more information.",
         );
     }
   }
