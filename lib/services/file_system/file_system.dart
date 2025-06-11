@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:termolio/services/file_system/directory_node.dart';
 import 'package:termolio/services/file_system/file_node.dart';
+import 'package:termolio/services/file_system/node.dart';
 
 class FileSystem {
   late DirectoryNode _currentDirectory;
@@ -51,7 +53,60 @@ class FileSystem {
   }
 
   String ls() {
-    final String content = _currentDirectory.children.map((e) => e.name).join('\n');
+    final String content = _currentDirectory.children
+        .map((e) => e.name)
+        .join('\n');
     return content;
+  }
+
+  void cd(String path) {
+    navigationHistory.add(_currentDirectory);
+
+    if (path == '~') {
+      _currentDirectory = _root;
+    } else if (path == '..') {
+      if (navigationHistory.isNotEmpty) {
+        navigationHistory.removeLast();
+        _currentDirectory =
+            navigationHistory.isNotEmpty ? navigationHistory.last : _root;
+      }
+    } else {
+      DirectoryNode localCurrent = _currentDirectory;
+      List<String> splitPath = path.split('/');
+
+      for (int i = 0; i < splitPath.length; i++) {
+        if (splitPath[i] == '') {
+          continue;
+        }
+
+        Node node = localCurrent.children.firstWhere(
+          (element) => element.name == splitPath[i],
+        );
+
+        if (node.isDirectory) {
+          localCurrent = node as DirectoryNode;
+        } else {
+          throw ("Not a directory");
+        }
+      }
+      _currentDirectory = localCurrent;
+    }
+  }
+
+  String cat(String fileName) {
+    try {
+      final Node file = _currentDirectory.children.firstWhere(
+        (element) => element.name.toLowerCase() == fileName.toLowerCase(),
+      );
+
+      if (!file.isDirectory) {
+        return (file as FileNode).content;
+      }
+
+      return "cat: ${file.name}: Is a directory";
+    } catch (e) {
+      debugPrint(e.toString());
+      return "cat: no such file or directory: $fileName";
+    }
   }
 }

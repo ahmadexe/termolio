@@ -5,17 +5,19 @@ class _ScreenState extends ChangeNotifier {
   static _ScreenState s(BuildContext context, [listen = false]) =>
       Provider.of<_ScreenState>(context, listen: listen);
 
-  final FileSystem fileSystem = FileSystem();
+  final TextEditingController controller = TextEditingController();
+  final ScrollController scrollController = ScrollController();
+  final focusNode = FocusNode();
 
   @override
   void dispose() {
     super.dispose();
     controller.dispose();
+    focusNode.dispose();
     scrollController.dispose();
   }
 
-  final TextEditingController controller = TextEditingController();
-  final ScrollController scrollController = ScrollController();
+  final FileSystem fileSystem = FileSystem();
 
   final String pathPrefix = 'ahmadexe@termolio';
 
@@ -55,6 +57,32 @@ class _ScreenState extends ChangeNotifier {
   }
 
   void _respondToCommand(String command) {
+    if (command.contains('cd')) {
+      try {
+        final path = command.split(' ')[1];
+        fileSystem.cd(path);
+      } catch (e) {
+        if (command.split(" ").length == 1) {
+          history.add("cd: missing operand");
+          return;
+        }
+        history.add("cd: no such file or directory: $command");
+      }
+
+      notifyListeners();
+      return;
+    }
+
+    if (command.contains('cat')) {
+      final divide = command.split(' ');
+      divide.removeAt(0);
+      final path = divide.join(' ');
+      final response = fileSystem.cat(path);
+      history.add(response);
+      notifyListeners();
+      return;
+    }
+
     switch (command) {
       case 'help' || 'h' || 'commands' || 'cmds' || 'man termoliobuiltins':
         final response =
