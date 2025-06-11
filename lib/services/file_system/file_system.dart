@@ -35,12 +35,41 @@ class FileSystem {
                 ),
               ],
             ),
-            DirectoryNode(name: 'PRISM', children: []),
-            DirectoryNode(name: 'Termolio', children: []),
-            DirectoryNode(name: 'PRSIM Chain', children: []),
+            DirectoryNode(
+              name: 'PRISM',
+              children: [
+                FileNode(
+                  content:
+                      "PRISM is the modern social media, the mobile application provides a seamless social media experience allowing users to monetise their data that they generate while mindlessly scrolling, you can not do that much due to our AI constantly boosting up beneficial content.\nGitHub: https://github.com/ahmadexe/PRISM-Mobile-App",
+                  name: "README.md",
+                ),
+              ],
+            ),
+            DirectoryNode(
+              name: 'Termolio',
+              children: [
+                FileNode(
+                  content:
+                      "A terminal based portfolio for myself, because I am not a big fun of boring portfolios. Made with Flutter.\nGitHub: https://github.com/ahmadexe/termolio",
+                  name: "README.md",
+                ),
+              ],
+            ),
+            DirectoryNode(
+              name: 'PRSIM Chain',
+              children: [
+                FileNode(
+                  content:
+                      "A blockchain 🔗 based on Bitcoin and Ethereum's architecture, combining the best of the both worlds. Running on gas less architecture PRISM Chain allows you to secure your data, tokenize it and use it to earn without paying anything.\nGitHub: https://github.com/ahmadexe/prism-chain",
+                  name: "README.md",
+                ),
+              ],
+            ),
           ],
         ),
-        DirectoryNode(name: 'awards', children: []),
+        DirectoryNode(name: 'awards', children: [
+          FileNode(content: "Alongside my team, we won the 2025 ICT Innovation Competition. We presented our PRISM and talked about agenix, using which we became one of the first few people to work in domain of agentic social media apps.", name: 'ICT Innovation Competition 2025')
+        ]),
         DirectoryNode(name: 'experience', children: []),
         DirectoryNode(
           name: 'articles',
