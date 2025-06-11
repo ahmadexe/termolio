@@ -22,7 +22,24 @@ class FileSystem {
     _root = DirectoryNode(
       name: '~',
       children: [
-        DirectoryNode(name: 'projects', children: []),
+        DirectoryNode(
+          name: 'projects',
+          children: [
+            DirectoryNode(
+              name: 'Agenix',
+              children: [
+                FileNode(
+                  content:
+                      "Build smart AI agents in Flutter with memory, tools, and LLMs like Gemini. Fast, pluggable, and developer-friendly.\nGitHub: https://github.com/ahmadexe/agenix\nPub dev: https://pub.dev/packages/agenix",
+                  name: 'README.md',
+                ),
+              ],
+            ),
+            DirectoryNode(name: 'PRISM', children: []),
+            DirectoryNode(name: 'Termolio', children: []),
+            DirectoryNode(name: 'PRSIM Chain', children: []),
+          ],
+        ),
         DirectoryNode(name: 'awards', children: []),
         DirectoryNode(name: 'experience', children: []),
         DirectoryNode(
@@ -59,17 +76,27 @@ class FileSystem {
     return content;
   }
 
-  void cd(String path) {
-    navigationHistory.add(_currentDirectory);
+  void cd(String path, {bool reset = false}) {
+    if (reset) {
+      _currentDirectory = _root;
+      navigationHistory.clear();
+      return;
+    }
 
     if (path == '~') {
+      navigationHistory.clear();
       _currentDirectory = _root;
     } else if (path == '..') {
-      if (navigationHistory.isNotEmpty) {
-        navigationHistory.removeLast();
-        _currentDirectory =
-            navigationHistory.isNotEmpty ? navigationHistory.last : _root;
+      if (navigationHistory.isEmpty) {
+        return;
+      } else if (navigationHistory.length == 1) {
+        navigationHistory.clear();
+        _currentDirectory = _root;
+        return;
       }
+
+      navigationHistory.removeLast();
+      _currentDirectory = navigationHistory.last;
     } else {
       DirectoryNode localCurrent = _currentDirectory;
       List<String> splitPath = path.split('/');
@@ -85,6 +112,7 @@ class FileSystem {
 
         if (node.isDirectory) {
           localCurrent = node as DirectoryNode;
+          navigationHistory.add(localCurrent);
         } else {
           throw ("Not a directory");
         }

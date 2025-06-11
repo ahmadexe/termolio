@@ -63,7 +63,7 @@ class _ScreenState extends ChangeNotifier {
         fileSystem.cd(path);
       } catch (e) {
         if (command.split(" ").length == 1) {
-          history.add("cd: missing operand");
+          fileSystem.cd('', reset: true);
           return;
         }
         history.add("cd: no such file or directory: $command");
