@@ -1,16 +1,44 @@
-# termolio
+# Termolio Web
 
-A new Flutter project.
+A simple terminal-inspired Flutter web app hosted on Firebase.
 
-## Getting Started
+## 🚀 "Deployment
 
-This project is a starting point for a Flutter application.
+To build and deploy the app:
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter build web
+firebase deploy --only hosting
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🔧 Setup
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Make sure Firebase CLI is installed:
+```
+npm install -g firebase-tools
+```
+
+2. Log in to Firebase:
+```
+firebase login
+```
+
+3. Associate the project (only once):
+```bash
+firebase use --add
+```
+
+4. Public directory for hosting is:
+```
+build/web
+```
+
+## Live URL
+
+The app is hosted at:
+[https://termolio.web.app/](https://termolio.web.app/)
+
+
+## 👨‍💻 "Author"
+
+"Muhammad Ahmad"
