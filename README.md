@@ -1,4 +1,4 @@
-# Termolio Web
+# Termolio 
 
 A simple terminal-inspired Flutter web app hosted on Firebase.
 
