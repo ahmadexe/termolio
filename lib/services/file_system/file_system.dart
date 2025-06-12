@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:termolio/services/file_system/directory_node.dart';
 import 'package:termolio/services/file_system/file_node.dart';
 import 'package:termolio/services/file_system/node.dart';
+import 'package:termolio/static/strings.dart';
 
 class FileSystem {
   late DirectoryNode _currentDirectory;
@@ -29,8 +30,7 @@ class FileSystem {
               name: 'Agenix',
               children: [
                 FileNode(
-                  content:
-                      "Build smart AI agents in Flutter with memory, tools, and LLMs like Gemini. Fast, pluggable, and developer-friendly.\nGitHub: https://github.com/ahmadexe/agenix\nPub dev: https://pub.dev/packages/agenix",
+                  content: AppStrings.agenixDescription,
                   name: 'README.md',
                 ),
               ],
@@ -39,8 +39,7 @@ class FileSystem {
               name: 'PRISM',
               children: [
                 FileNode(
-                  content:
-                      "PRISM is the modern social media, the mobile application provides a seamless social media experience allowing users to monetise their data that they generate while mindlessly scrolling, you can not do that much due to our AI constantly boosting up beneficial content.\nGitHub: https://github.com/ahmadexe/PRISM-Mobile-App",
+                  content: AppStrings.prismDescription,
                   name: "README.md",
                 ),
               ],
@@ -49,8 +48,7 @@ class FileSystem {
               name: 'Termolio',
               children: [
                 FileNode(
-                  content:
-                      "A terminal based portfolio for myself, because I am not a big fun of boring portfolios. Made with Flutter.\nGitHub: https://github.com/ahmadexe/termolio",
+                  content: AppStrings.termolioDescription,
                   name: "README.md",
                 ),
               ],
@@ -59,8 +57,7 @@ class FileSystem {
               name: 'PRSIM Chain',
               children: [
                 FileNode(
-                  content:
-                      "A blockchain 🔗 based on Bitcoin and Ethereum's architecture, combining the best of the both worlds. Running on gas less architecture PRISM Chain allows you to secure your data, tokenize it and use it to earn without paying anything.\nGitHub: https://github.com/ahmadexe/prism-chain",
+                  content: AppStrings.prismChainDescription,
                   name: "README.md",
                 ),
               ],

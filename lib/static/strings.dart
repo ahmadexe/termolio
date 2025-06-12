@@ -1,0 +1,21 @@
+class AppStrings {
+  static const String agenixDescription =
+      '''Agenix is a Flutter and Dart-based framework that helps developers build intelligent, agentic applications with ease. It provides a modular structure to define agents, plug in large language models like Gemini, and manage data using built-in or custom data stores like Firebase. Each agent can be equipped with tools to perform specific actions such as fetching weather or news, and the framework supports chaining multiple agents for collaborative reasoning. System behavior and personality can be defined via a simple configuration file, making the setup highly customizable.
+
+Agenix is designed for developers who want to create smart apps powered by AI agents that can maintain context, respond to prompts intelligently, and carry out tasks through tools. With flexible components like tool registries, system data, and support for both simple and parameterized tools, the framework allows agents to handle everything from conversation management to executing specific business logic. Agenix is open-source and maintained by me, with usage examples and visual demonstrations available on GitHub.\nGitHub: https://github.com/ahmadexe/agenix\nPub dev: https://pub.dev/packages/agenix''';
+
+  static const String prismDescription =
+      '''The current social media landscape often disregards user consent, turning personal data into a commodity for advertisers without offering individuals any control or benefit. This creates a serious ethical issue around digital ownership, privacy, and exploitation. Users are left vulnerable to data leaks, targeted manipulation, and a complete lack of transparency in how their information is collected and used.
+
+PRISM reimagines this ecosystem by putting power back into the hands of users. Built on blockchain, PRISM ensures that user data is stored securely, tamper-proof, and fully user-owned. No third party can access or monetize it without explicit, traceable consent. By combining this with AI, PRISM personalizes user experiences in a privacy-first manner—delivering relevance without surveillance. It’s a decentralized, trustless system designed to rebuild digital trust and reward users for the value they generate online.\nGitHub: https://github.com/ahmadexe/PRISM-Mobile-App''';
+
+  static const String prismChainDescription =
+      '''PRISM introduces a novel gasless blockchain architecture inspired by the foundational designs of both Bitcoin and Ethereum. While Bitcoin emphasizes decentralization and security, and Ethereum brings smart contract flexibility, PRISM combines the strengths of both to create a scalable and user-friendly system. This hybrid design enables PRISM to maintain the integrity and immutability of on-chain data while optimizing for modern application demands like low-latency interactions and seamless integration with AI-driven platforms.
+
+Unlike traditional blockchains that rely on gas fees to perform actions, PRISM’s architecture eliminates transaction costs for end users. This gasless model is essential for capturing and securing high-volume, complex social engagement data—such as likes, shares, comments, and behavioral patterns—without burdening users. It enables real-time, transparent tracking of interactions while preserving user autonomy and consent, making it a practical blockchain layer for social media applications where usability and trust are critical.\nGitHub: https://github.com/ahmadexe/prism-chain''';
+
+  static const String termolioDescription =
+      '''Termolio is a simple terminal-style web application built using Flutter and hosted on Firebase. Designed for a lightweight and retro interface experience, it mimics the feel of using a terminal, offering a unique way to interact with a web app. The app is live and can be accessed at https://termolio.web.app/, providing a smooth, responsive UI thanks to Flutter’s capabilities on the web.
+
+To set up and deploy Termolio, users must first install the Firebase CLI, log in, and associate their Firebase project. The app is built with flutter build web and hosted from the build/web directory using Firebase Hosting. This streamlined process ensures a straightforward deployment workflow for anyone looking to replicate or contribute to the project.\nGitHub: https://github.com/ahmadexe/termolio''';
+}
