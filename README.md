@@ -39,6 +39,6 @@ The app is hosted at:
 [https://termolio.web.app/](https://termolio.web.app/)
 
 
-## 👨‍💻 "Author"
+## 👨‍💻 Author
 
-"Muhammad Ahmad"
+Muhammad Ahmad
